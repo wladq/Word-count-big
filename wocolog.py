@@ -18,4 +18,4 @@ def permerr():
 
 def incorerr():
     logging.error("Incorrect filename or filename not found")
-    print("Please provide a correct filename or filename with a path. If the filename contains spacing, it should be quoted.")
+    print("File not found or incorrect. Please provide a correct filename or filename with a path. If the filename contains spacing, it should be quoted.")
