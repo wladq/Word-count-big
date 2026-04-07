@@ -1,4 +1,0 @@
-A testing file with words and an interesting structure. Also needs a lorem ipsum input.
-new line text
-new line text 
-new line text
