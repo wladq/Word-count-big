@@ -6,19 +6,40 @@ Created on Mon Mar 30 17:00:20 2026
 """
 
 import sys
+import logging
+import wocolog
 import time 
-start_time = time.time()
+logger = logging.getLogger(__name__)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(message)s",
+    datefmt="%d.%m.%y %H:%M:%S",
+    filename="Info-logs.log")
 
+start_tim = time.time()
+logging.info(f'Program started at {start_tim}')
 def word_count(tekfil):
     words=set()
     with open(tekfil, 'r') as file:
         for line in file:
             for word in line.split():
                 words.add(word) 
+    logging.info(f"Words from {tekfil} will be counted")
     return (len(words))
+    
+    
             
             
 if __name__ == "__main__":
-    numw = word_count(sys.argv[1])
-    print(numw)
-print("--- %s seconds ---" % (time.time() - start_time))
+    try:
+        numw = word_count(sys.argv[1])
+        print(numw)
+        logging.info(f"Number of counted words: {numw}")
+    except IndexError:
+        wocolog.notfounderr()
+    except PermissionError:
+        wocolog.permerr()
+    except FileNotFoundError:
+        wocolog.incorerr()
+logging.info(f'Program finished at {time.time()}')
+logging.info(f'--- {(time.time() - start_tim)} seconds ---' )
