@@ -16,7 +16,7 @@ print(f"Words from {tekfil} will be counted")
 with open(tekfil, 'r') as file:
     zawar = file.read()
     
-print(zawar)
+#print(zawar)
 
 casedown = [i.lower() for i in (zawar.replace(".","").split())]
 print(f"Total number of words: {len(casedown)}")
