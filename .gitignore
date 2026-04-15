@@ -5,3 +5,5 @@ _pycache_/
 chleb.txt
 __pycache__
 .spyproject/
+.vscode/
+chleb*
