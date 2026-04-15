@@ -10,7 +10,7 @@ import time
 start_time = time.time()
 #print("Enter file name with path")
 #tekfil=input()
-tekfil="nowy 1.txt"
+tekfil="chleb1.txt"
 print(f"Words from {tekfil} will be counted")
 
 with open(tekfil, 'r') as file:
