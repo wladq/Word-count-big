@@ -8,7 +8,7 @@ Created on Fri Apr 10 16:56:18 2026
 import sys
 import logging
 import wocolog
-import time 
+import time
 logger = logging.getLogger(__name__)
 logging.basicConfig(
     level=logging.INFO,
@@ -17,19 +17,21 @@ logging.basicConfig(
     filename="Info-logs.log")
 
 start_tim = time.time()
-wocolog.starttimeinfo(start_tim)
-def word_count(tekfil):
+
+def main() -> None:
+    wocolog.starttimeinfo(start_tim)
+
+
+def word_count(filepath):
     words=set()
-    with open(tekfil, 'r') as file:
+    with open(filepath, 'r') as file:
         for line in file:
             for word in line.split():
                 words.add(word) 
-    wocolog.fileusedinfo(tekfil)
-    return (len(words))
-    
-    
-            
-            
+    wocolog.fileusedinfo(filepath)
+    return len(words)
+
+
 if __name__ == "__main__":
     try:
         numw = word_count(sys.argv[1])
@@ -41,4 +43,4 @@ if __name__ == "__main__":
         wocolog.permerr()
     except FileNotFoundError:
         wocolog.incorerr()
-wocolog.endtimeanddurationinfo(start_tim, time.time())
+    wocolog.endtimeanddurationinfo(start_tim, time.time())
