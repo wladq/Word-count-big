@@ -5,3 +5,8 @@ _pycache_/
 chleb.txt
 __pycache__
 .spyproject/
+.vscode/
+core.py
+core2.py
+
+chleb*
