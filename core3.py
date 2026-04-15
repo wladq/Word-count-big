@@ -25,9 +25,19 @@ def main() -> None:
 def word_count(filepath):
     words=set()
     with open(filepath, 'r') as file:
-        for line in file:
-            for word in line.split():
-                words.add(word) 
+        while True:
+            subline = file.read(2048)
+            if subline[-1].isspace:
+                for word in subline.split():
+                    words.add(word)
+            elif subline is None:
+                break
+            else:
+                subline.append(file.read(1))
+                if subline[-1].isspace:
+                    for word in subline.split():
+                        words.add(word)
+
     wocolog.fileusedinfo(filepath)
     return len(words)
 
