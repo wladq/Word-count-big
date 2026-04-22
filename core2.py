@@ -7,7 +7,7 @@ Created on Mon Mar 30 17:00:20 2026
 
 import sys
 import logging
-import wocolog
+import logging_helpers
 import time 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
@@ -36,10 +36,10 @@ if __name__ == "__main__":
         print(numw)
         logging.info(f"Number of counted words: {numw}")
     except IndexError:
-        wocolog.notfounderr()
+        logging_helpers.notfounderr()
     except PermissionError:
-        wocolog.permerr()
+        logging_helpers.permerr()
     except FileNotFoundError:
-        wocolog.incorerr()
+        logging_helpers.incorerr()
 logging.info(f'Program finished at {time.time()}')
 logging.info(f'--- {(time.time() - start_tim)} seconds ---' )
